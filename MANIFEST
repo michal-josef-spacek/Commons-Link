@@ -18,5 +18,7 @@ META.yml
 README
 t/Commons-Link/01-use.t
 t/Commons-Link/02-version.t
+t/Commons-Link/03-new.t
+t/Commons-Link/04-link.t
 xt/Commons-Link/01-pod_coverage.t
 xt/Commons-Link/02-pod.t
