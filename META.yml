@@ -25,6 +25,10 @@ no_index:
     - t
     - xt
 requires:
+  Class::Utils: 0
+  Digest::MD5: 0
+  File::Spec::Functions: 0
+  Readonly: 0
   perl: 5.8.0
 resources:
   bugtracker: https://github.com/michal-josef-spacek/Commons-Link/issues
