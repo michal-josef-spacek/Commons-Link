@@ -11,7 +11,7 @@ use Unicode::UTF8 qw(decode_utf8 encode_utf8);
 
 Readonly::Scalar our $BASE_URI => q{http://upload.wikimedia.org/wikipedia/commons/};
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 sub new {
 	my ($class, @params) = @_;
@@ -204,6 +204,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.01
+0.02
 
 =cut
