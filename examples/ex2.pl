@@ -19,4 +19,5 @@ print 'Input file: '.$commons_file."\n";
 print 'Output link: '.$commons_url."\n";
 
 # Output:
-# TODO
+# Input file: File:Michal from Czechia.jpg
+# Output link: http://upload.wikimedia.org/wikipedia/commons/a/a4/Michal_from_Czechia.jpg
