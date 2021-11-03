@@ -21,6 +21,7 @@ requires 'Class::Utils' => 0;
 requires 'Digest::MD5' => 0;
 requires 'File::Spec::Functions' => 0;
 requires 'Readonly' => 0;
+requires 'Unicode::UTF8' => 0;
 requires 'perl' => '5.8.0';
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/Commons-Link/issues';
 resources 'homepage' => 'https://github.com/michal-josef-spacek/Commons-Link';
@@ -30,6 +31,7 @@ test_requires 'Error::Pure::Utils' => 0.22;
 test_requires 'File::Object' => 0.03;
 test_requires 'Test::More' => 0;
 test_requires 'Test::NoWarnings' => 0;
+test_requires 'Unicode::UTF8' => 0;
 tests_recursive;
 version '0.01';
 

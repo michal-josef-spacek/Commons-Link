@@ -7,6 +7,7 @@ use Class::Utils qw(set_params);
 use File::Spec::Functions qw(catfile);
 use Digest::MD5 qw(md5_hex);
 use Readonly;
+use Unicode::UTF8 qw(decode_utf8 encode_utf8);
 
 Readonly::Scalar our $BASE_URI => q{http://upload.wikimedia.org/wikipedia/commons/};
 
@@ -17,6 +18,9 @@ sub new {
 
 	# Create object.
 	my $self = bless {}, $class;
+
+	# UTF-8 mode.
+	$self->{'utf-8'} = 1;
 
 	# Process parameters.
 	set_params($self, @params);
@@ -55,7 +59,15 @@ sub _cleanup {
 sub _compute_ab {
 	my ($self, $file) = @_;
 
-	my $digest = lc(md5_hex($file));
+	# MD5 only on bytes not utf8 chars.
+	my $digest;
+	if ($self->{'utf-8'}) {
+		my $tmp = encode_utf8($file);
+		$digest = lc(md5_hex($tmp));
+	} else {
+		$digest = lc(md5_hex($file));
+	}
+
 	my $a = substr $digest, 0, 1;
 	my $b = substr $digest, 0, 2;
 
