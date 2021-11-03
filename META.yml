@@ -1,5 +1,5 @@
 ---
-abstract: TODO.
+abstract: 'Object for creating link for Wikimedia Commons.'
 author:
   - 'Michal Josef Spacek <skim@cpan.org>'
 build_requires:
