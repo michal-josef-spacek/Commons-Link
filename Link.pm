@@ -4,12 +4,13 @@ use strict;
 use warnings;
 
 use Class::Utils qw(set_params);
-use File::Spec::Functions qw(catfile);
 use Digest::MD5 qw(md5_hex);
 use Readonly;
 use Unicode::UTF8 qw(decode_utf8 encode_utf8);
+use URI;
 
-Readonly::Scalar our $BASE_URI => q{http://upload.wikimedia.org/wikipedia/commons/};
+Readonly::Scalar our $BASE_URI => q{http://upload.wikimedia.org};
+Readonly::Array our @BASE_SEGS => qw(wikipedia commons);
 
 our $VERSION = 0.03;
 
@@ -36,9 +37,10 @@ sub link {
 	# Digest characters.
 	my ($a, $b) = $self->_compute_ab($file);
 
-	my $url = $BASE_URI.catfile($a, $b, $file);
+	my $u = URI->new($BASE_URI);
+	$u->path_segments(@BASE_SEGS, $a, $b, $file);
 
-	return $url;
+	return $u->as_string;
 }
 
 sub _cleanup {
@@ -181,10 +183,10 @@ Returns string with URL.
 =head1 DEPENDENCIES
 
 L<Class::Utils>,
-L<File::Spec::Functions>,
 L<Digest::MD5>,
 L<Readonly>,
-L<Unicode::UTF8>.
+L<Unicode::UTF8>,
+L<URI>.
 
 =head1 REPOSITORY
 

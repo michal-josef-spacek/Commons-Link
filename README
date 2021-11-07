@@ -83,8 +83,7 @@ EXAMPLE2
      # Output link: http://upload.wikimedia.org/wikipedia/commons/a/a4/Michal_from_Czechia.jpg
 
 DEPENDENCIES
-    Class::Utils, File::Spec::Functions, Digest::MD5, Readonly,
-    Unicode::UTF8.
+    Class::Utils, Digest::MD5, Readonly, Unicode::UTF8, URI.
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/Commons-Link>
