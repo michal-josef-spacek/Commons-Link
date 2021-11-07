@@ -12,7 +12,7 @@ use URI;
 Readonly::Scalar our $BASE_URI => q{http://upload.wikimedia.org};
 Readonly::Array our @BASE_SEGS => qw(wikipedia commons);
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 sub new {
 	my ($class, @params) = @_;
@@ -206,6 +206,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.03
+0.04
 
 =cut
