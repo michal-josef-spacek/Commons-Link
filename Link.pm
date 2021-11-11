@@ -178,7 +178,7 @@ e.g. File:__FILENAME__, User:__USERNAME__, Category:__CATEGORY__
 
 Returns string with URL.
 
-=head2 C<mw_user_name>
+=head2 C<mw_user_link>
 
  my $mw_user_link = $obj->mw_user_link($user);
 
