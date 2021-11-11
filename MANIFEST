@@ -23,5 +23,8 @@ t/Commons-Link/01-use.t
 t/Commons-Link/02-version.t
 t/Commons-Link/03-new.t
 t/Commons-Link/04-link.t
+t/Commons-Link/05-mw_file_link.t
+t/Commons-Link/06-mw_link.t
+t/Commons-Link/07-mw_user_link.t
 xt/Commons-Link/01-pod_coverage.t
 xt/Commons-Link/02-pod.t

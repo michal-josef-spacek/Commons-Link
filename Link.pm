@@ -10,7 +10,9 @@ use Unicode::UTF8 qw(decode_utf8 encode_utf8);
 use URI;
 
 Readonly::Scalar our $BASE_URI => q{http://upload.wikimedia.org};
+Readonly::Scalar our $COMMONS_URI => q{https://commons.wikimedia.org};
 Readonly::Array our @BASE_SEGS => qw(wikipedia commons);
+Readonly::Array our @COMMONS_SEGS => qw(wiki);
 
 our $VERSION = 0.04;
 
@@ -41,6 +43,35 @@ sub link {
 	$u->path_segments(@BASE_SEGS, $a, $b, $file);
 
 	return $u->as_string;
+}
+
+sub mw_file_link {
+	my ($self, $file) = @_;
+
+	if ($file !~ m/^(File|Image):/ms) {
+		$file = 'File:'.$file;
+	}
+
+	return $self->mw_link($file);
+}
+
+sub mw_link {
+	my ($self, $file) = @_;
+
+	my $u = URI->new($COMMONS_URI);
+	$u->path_segments(@COMMONS_SEGS, $file);
+
+	return $u->as_string;
+}
+
+sub mw_user_link {
+	my ($self, $user) = @_;
+
+	if ($user !~ m/^User:/ms) {
+		$user = 'User:'.$user;
+	}
+
+	return $self->mw_link($user);
 }
 
 sub _cleanup {
@@ -94,6 +125,9 @@ Commons::Link - Object for creating link for Wikimedia Commons.
 
  my $obj = Commons::Link->new(%params);
  my $link = $obj->link($file);
+ my $mw_file_link = $obj->mw_file_link($file);
+ my $mw_link = $obj->mw_link($object);
+ my $mw_user_link = $obj->mw_user_link($user);
 
 =head1 METHODS
 
@@ -123,6 +157,33 @@ Default value is 1.
 Get URL from Wikimedia Commons computed from file name.
 File name could be with 'Image:' and 'File:' prefix or directly file.
 Spaces are translated to '_'.
+
+Returns string with URL.
+
+=head2 C<mw_file_link>
+
+ my $mw_file_link = $obj->mw_file_link($file);
+
+Get URL from Wikimedia Commons MediaWiki view page defined by file name.
+File name could be with 'Image:' and 'File:' prefix or directly file.
+
+Returns string with URL.
+
+=head2 C<mw_link>
+
+ my $mw_link = $obj->mw_link($object);
+
+Get URL from Wikimedia Commons MediaWiki view page defined by object name.
+e.g. File:__FILENAME__, User:__USERNAME__, Category:__CATEGORY__
+
+Returns string with URL.
+
+=head2 C<mw_user_name>
+
+ my $mw_user_link = $obj->mw_user_link($user);
+
+Get URL from Wikimedia Commons MediaWiki view page defined by user name.
+File name could be with 'User:' prefix or directly file.
 
 Returns string with URL.
 

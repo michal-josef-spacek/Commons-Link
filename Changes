@@ -1,4 +1,7 @@
 0.04
+ - Add mw_file_link() method.
+ - Add mw_link() method.
+ - Add mw_user_link() method.
 
 0.03 2021-11-07T11:53:42+01:00
  - Fix URI constucting.
