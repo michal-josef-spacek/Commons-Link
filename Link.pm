@@ -9,9 +9,9 @@ use Readonly;
 use Unicode::UTF8 qw(decode_utf8 encode_utf8);
 use URI;
 
-Readonly::Scalar our $BASE_URI => q{http://upload.wikimedia.org};
+Readonly::Scalar our $UPLOAD_URI => q{http://upload.wikimedia.org};
 Readonly::Scalar our $COMMONS_URI => q{https://commons.wikimedia.org};
-Readonly::Array our @BASE_SEGS => qw(wikipedia commons);
+Readonly::Array our @UPLOAD_SEGS => qw(wikipedia commons);
 Readonly::Array our @COMMONS_SEGS => qw(wiki);
 
 our $VERSION = 0.04;
@@ -39,8 +39,8 @@ sub link {
 	# Digest characters.
 	my ($a, $b) = $self->_compute_ab($file);
 
-	my $u = URI->new($BASE_URI);
-	$u->path_segments(@BASE_SEGS, $a, $b, $file);
+	my $u = URI->new($UPLOAD_URI);
+	$u->path_segments(@UPLOAD_SEGS, $a, $b, $file);
 
 	return $u->as_string;
 }
