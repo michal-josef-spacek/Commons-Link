@@ -74,6 +74,21 @@ sub mw_user_link {
 	return $self->mw_link($user);
 }
 
+sub thumb_link {
+	my ($self, $file, $width) = @_;
+
+	$self->_cleanup(\$file);
+
+	# Digest characters.
+	my ($a, $b) = $self->_compute_ab($file);
+
+	my $u = URI->new($UPLOAD_URI);
+	$u->path_segments(@UPLOAD_SEGS, 'thumb', $a, $b, $file,
+		$width.'px-'.$file);
+
+	return $u->as_string;
+}
+
 sub _cleanup {
 	my ($self, $file_sr) = @_;
 
@@ -128,6 +143,7 @@ Commons::Link - Object for creating link for Wikimedia Commons.
  my $mw_file_link = $obj->mw_file_link($file);
  my $mw_link = $obj->mw_link($object);
  my $mw_user_link = $obj->mw_user_link($user);
+ my $thumb_link = $obj->thumb_link($file, $width_in_pixels);
 
 =head1 METHODS
 
@@ -187,6 +203,16 @@ File name could be with 'User:' prefix or directly file.
 
 Returns string with URL.
 
+=head2 C<thumb_link>
+
+ my $thumb_link = $obj->thumb_link($file, $width_in_pixels);
+
+Get URL from Wikimedia Commons computed from file name and image width in pixels.
+File name could be with 'Image:' and 'File:' prefix or directly file.
+Spaces are translated to '_'.
+
+Returns string with URL.
+
 =head1 ERRORS
 
  new():
@@ -240,6 +266,30 @@ Returns string with URL.
  # Output:
  # Input file: File:Michal from Czechia.jpg
  # Output link: http://upload.wikimedia.org/wikipedia/commons/a/a4/Michal_from_Czechia.jpg
+
+=head1 EXAMPLE3
+
+ use strict;
+ use warnings;
+
+ use Commons::Link;
+
+ # Object.
+ my $obj = Commons::Link->new;
+
+ # Input name.
+ my $commons_file = 'File:Michal from Czechia.jpg';
+
+ # URL to thumbnail file.
+ my $commons_url = $obj->thumb_link($commons_file, 200);
+
+ # Print out.
+ print 'Input file: '.$commons_file."\n";
+ print 'Output thumbnail link: '.$commons_url."\n";
+
+ # Output:
+ # Input file: File:Michal from Czechia.jpg
+ # Output thumbnail link: http://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Michal_from_Czechia.jpg/200px-Michal_from_Czechia.jpg
 
 =head1 DEPENDENCIES
 
