@@ -46,4 +46,3 @@ my $file = decode_utf8('Čaj.jpg');
 $ret = $obj->link($file);
 is($ret, decode_utf8('http://upload.wikimedia.org/wikipedia/commons/f/f3/%C4%8Caj.jpg'),
 	"Link defined by image name. Diacritics.");
-#is(length $ret, 57, 'Length');
