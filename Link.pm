@@ -5,6 +5,7 @@ use warnings;
 
 use Class::Utils qw(set_params);
 use Digest::MD5 qw(md5_hex);
+use File::Basename;
 use Readonly;
 use Unicode::UTF8 qw(decode_utf8 encode_utf8);
 use URI;
@@ -82,9 +83,16 @@ sub thumb_link {
 	# Digest characters.
 	my ($a, $b) = $self->_compute_ab($file);
 
+	my $thumb_file = $file;
+	my ($name, undef, $suffix) = fileparse($file, qr/\.[^.]*/ms);
+	if ($suffix eq '.svg') {
+		$suffix = '.png';
+		$thumb_file = $name.$suffix;
+	}
+
 	my $u = URI->new($UPLOAD_URI);
 	$u->path_segments(@UPLOAD_SEGS, 'thumb', $a, $b, $file,
-		$width.'px-'.$file);
+		$width.'px-'.$thumb_file);
 
 	return $u->as_string;
 }

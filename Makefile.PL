@@ -19,6 +19,7 @@ readme_from 'Link.pm';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0;
 requires 'Digest::MD5' => 0;
+requires 'File::Basename' => 0;
 requires 'Readonly' => 0;
 requires 'Unicode::UTF8' => 0;
 requires 'URI' => 0;
