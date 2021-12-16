@@ -1,4 +1,4 @@
-0.06
+0.06 2021-12-16T08:18:19+01:00
  - Fix thumb_file() if file is SVG file.
  - Update README file.
 
