@@ -6,6 +6,7 @@ use warnings;
 use Class::Utils qw(set_params);
 use Digest::MD5 qw(md5_hex);
 use File::Basename;
+use List::MoreUtils qw(any);
 use Readonly;
 use Unicode::UTF8 qw(decode_utf8 encode_utf8);
 use URI;
@@ -85,7 +86,7 @@ sub thumb_link {
 
 	my $thumb_file = $file;
 	my ($name, undef, $suffix) = fileparse($file, qr/\.[^.]*/ms);
-	if ($suffix eq '.svg') {
+	if (any { $_ eq $suffix } qw(.svg .tif .pdf)) {
 		$suffix = '.png';
 		$thumb_file = $name.$suffix;
 	}
