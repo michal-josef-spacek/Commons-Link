@@ -16,7 +16,7 @@ Readonly::Scalar our $COMMONS_URI => q{https://commons.wikimedia.org};
 Readonly::Array our @UPLOAD_SEGS => qw(wikipedia commons);
 Readonly::Array our @COMMONS_SEGS => qw(wiki);
 
-our $VERSION = 0.08;
+our $VERSION = 0.09;
 
 sub new {
 	my ($class, @params) = @_;
@@ -332,6 +332,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.08
+0.09
 
 =cut
