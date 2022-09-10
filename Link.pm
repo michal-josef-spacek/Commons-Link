@@ -230,6 +230,8 @@ Returns string with URL.
 
 =head1 EXAMPLE1
 
+=for comment filename=link_to_commons_file1.pl
+
  use strict;
  use warnings;
 
@@ -254,6 +256,8 @@ Returns string with URL.
 
 =head1 EXAMPLE2
 
+=for comment filename=link_to_commons_file2.pl
+
  use strict;
  use warnings;
 
@@ -277,6 +281,8 @@ Returns string with URL.
  # Output link: http://upload.wikimedia.org/wikipedia/commons/a/a4/Michal_from_Czechia.jpg
 
 =head1 EXAMPLE3
+
+=for comment filename=link_to_commons_thumb_file.pl
 
  use strict;
  use warnings;
