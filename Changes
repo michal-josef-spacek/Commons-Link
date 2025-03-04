@@ -1,6 +1,7 @@
 0.09
  - Add bool check for 'utf-8' parameter.
  - Fix DEPENDENCIES section in doc.
+ - Rewrite List::MoreUtils to List::Util.
  - Update Module::Install to 1.21 version.
  - Update copyright years.
 

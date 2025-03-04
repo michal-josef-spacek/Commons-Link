@@ -30,7 +30,7 @@ requires:
   Class::Utils: 0
   Digest::MD5: 0
   File::Basename: 0
-  List::MoreUtils: 0
+  List::Util: 1.33
   Mo::utils: 0.06
   Readonly: 0
   URI: 0

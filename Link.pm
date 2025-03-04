@@ -6,7 +6,7 @@ use warnings;
 use Class::Utils qw(set_params);
 use Digest::MD5 qw(md5_hex);
 use File::Basename;
-use List::MoreUtils qw(any);
+use List::Util 1.33 qw(any);
 use Mo::utils 0.06 qw(check_bool);
 use Readonly;
 use Unicode::UTF8 qw(decode_utf8 encode_utf8);
@@ -314,7 +314,7 @@ Returns string with URL.
 L<Class::Utils>,
 L<Digest::MD5>,
 L<File::Basename>,
-L<List::MoreUtils>,
+L<List::Util>,
 L<Mo::utils>,
 L<Readonly>,
 L<Unicode::UTF8>,

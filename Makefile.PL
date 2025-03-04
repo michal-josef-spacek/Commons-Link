@@ -20,7 +20,7 @@ recursive_author_tests('xt');
 requires 'Class::Utils' => 0;
 requires 'Digest::MD5' => 0;
 requires 'File::Basename' => 0;
-requires 'List::MoreUtils' => 0;
+requires 'List::Util' => 1.33;
 requires 'Mo::utils' => 0.06;
 requires 'Readonly' => 0;
 requires 'Unicode::UTF8' => 0;
