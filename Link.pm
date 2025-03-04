@@ -313,6 +313,8 @@ Returns string with URL.
 
 L<Class::Utils>,
 L<Digest::MD5>,
+L<File::Basename>,
+L<List::MoreUtils>,
 L<Mo::utils>,
 L<Readonly>,
 L<Unicode::UTF8>,
