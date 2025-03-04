@@ -1,4 +1,4 @@
-0.09
+0.09 2025-03-04T01:11:45+01:00
  - Add bool check for 'utf-8' parameter.
  - Fix DEPENDENCIES section in doc.
  - Rewrite List::MoreUtils to List::Util.
