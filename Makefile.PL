@@ -21,6 +21,7 @@ requires 'Class::Utils' => 0;
 requires 'Digest::MD5' => 0;
 requires 'File::Basename' => 0;
 requires 'List::MoreUtils' => 0;
+requires 'Mo::utils' => 0.06;
 requires 'Readonly' => 0;
 requires 'Unicode::UTF8' => 0;
 requires 'URI' => 0;

@@ -7,6 +7,7 @@ use Class::Utils qw(set_params);
 use Digest::MD5 qw(md5_hex);
 use File::Basename;
 use List::MoreUtils qw(any);
+use Mo::utils 0.06 qw(check_bool);
 use Readonly;
 use Unicode::UTF8 qw(decode_utf8 encode_utf8);
 use URI;
@@ -29,6 +30,8 @@ sub new {
 
 	# Process parameters.
 	set_params($self, @params);
+
+	check_bool($self, 'utf-8');
 
 	return $self;
 }
@@ -310,6 +313,7 @@ Returns string with URL.
 
 L<Class::Utils>,
 L<Digest::MD5>,
+L<Mo::utils>,
 L<Readonly>,
 L<Unicode::UTF8>,
 L<URI>.

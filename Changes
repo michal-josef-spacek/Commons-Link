@@ -1,4 +1,5 @@
 0.09
+ - Add bool check for 'utf-8' parameter.
  - Update Module::Install to 1.21 version.
  - Update copyright years.
 
